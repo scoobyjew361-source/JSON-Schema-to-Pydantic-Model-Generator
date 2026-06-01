@@ -1,0 +1,32 @@
+openapi: "3.0.3"
+info:
+  title: Pet Store
+  version: "1.0"
+paths: {}
+components:
+  schemas:
+    Pet:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        age:
+          type: integer
+          minimum: 0
+        kind:
+          enum:
+            - cat
+            - dog
+            - bird
+    Owner:
+      type: object
+      required:
+        - fullName
+      properties:
+        fullName:
+          type: string
+        phone:
+          type: string
+          pattern: "^\\+?[0-9\\- ]+$"

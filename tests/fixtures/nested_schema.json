@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Order",
+  "required": ["id", "customer"],
+  "properties": {
+    "id": {"type": "integer"},
+    "customer": {"$ref": "#/definitions/Customer"},
+    "items": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/Item"}
+    }
+  },
+  "definitions": {
+    "Customer": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string"},
+        "email": {"type": "string", "format": "email"}
+      }
+    },
+    "Item": {
+      "type": "object",
+      "required": ["sku", "price"],
+      "properties": {
+        "sku": {"type": "string"},
+        "price": {"type": "number", "minimum": 0}
+      }
+    }
+  }
+}

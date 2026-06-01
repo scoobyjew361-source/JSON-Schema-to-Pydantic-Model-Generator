@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Employee",
+  "allOf": [
+    {"$ref": "#/definitions/Person"},
+    {
+      "type": "object",
+      "required": ["department"],
+      "properties": {
+        "department": {"type": "string"},
+        "level": {"type": "integer", "minimum": 1, "maximum": 10}
+      }
+    }
+  ],
+  "definitions": {
+    "Person": {
+      "type": "object",
+      "required": ["firstName", "lastName"],
+      "properties": {
+        "firstName": {"type": "string"},
+        "lastName": {"type": "string"},
+        "birthDate": {"type": "string", "format": "date"}
+      }
+    }
+  }
+}
